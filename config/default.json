@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://shekhar:shekhar@contactkeeper.buiftnr.mongodb.net/"
+    "mongoURI": "mongodb+srv://shekhar:shekhar@contactkeeper.buiftnr.mongodb.net/ContactKeeperDev",
+    "jwtSecret": "HighlyConfidentialToken"
 }
