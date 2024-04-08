@@ -1,5 +1,6 @@
 const express = require('express')
 const connectDB = require('./config/db')
+const path = require('path')
 const app = express()
 
 const PORT = process.env.PORT || 5000
@@ -9,7 +10,11 @@ connectDB()
 // Init Middleware
 app.use(express.json({ extended: false }))
 
-app.get('/', (req, res) => res.json({ msg: 'Welcome to  contact keeper api' }))
+// Server static assets in production
+if (process.env.NODE_ENV === 'production') {
+    // Set static folder
+    app.use(express.static(path.join(__dirname, 'client', 'build', 'index.html')))
+}
 
 // Define routes
 app.use('/api/users', require('./routes/users'))
