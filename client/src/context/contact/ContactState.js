@@ -28,13 +28,15 @@ export const useContacts = () => {
 // Get Contacts
 export const getContacts = async (dispatch) => {
     try {
+        console.log(31, 'Test')
         const res = await axios.get('/api/contacts');
-
+        console.log(32, res)
         dispatch({
             type: GET_CONTACTS,
             payload: res.data
         });
     } catch (err) {
+        console.log(39, { err, errStack: err.stack })
         dispatch({
             type: CONTACT_ERROR,
             payload: err.response.msg
